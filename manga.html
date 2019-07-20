@@ -1,0 +1,78 @@
+<!DOCTYPE><html>
+<html>
+<head>
+	<title>CSS Grid</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+</head>
+<style>
+	.grid-container-top {
+		display: grid;
+		grid-template-rows: 230px;
+		grid-template-columns: 150px 300px;
+		grid-gap: 8px;
+		align-content: end;
+
+		width: 520px;
+		height: 285px;
+		padding-left: 30px;
+		border: 1.5px solid grey; 
+	}
+
+	.frame {
+		border: 1.5px solid black;
+		background: lightgrey; 
+	}
+
+	.frame-1, .frame-2 {
+		position: relative;
+	}
+
+	.speech {
+		position: absolute;
+	}
+
+	.speech-1 {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		left: calc(50% - 22.5px); top: calc(50% - 44px);
+		width: 45px;
+		height: 48px;
+		font-size: 20px;
+		border: 1px solid black;
+		background-color: #fff;
+	}
+
+	.speech-2 {
+		display: grid;
+		left: -35px; top: -35px;
+		width: 130px;
+		height: 170px;
+		border: 1px solid black;
+		background-color: #fff;
+	}
+</style>
+<body>
+	<div class="grid-container-top">
+		<div class="frame frame-1">
+			<div class="speech speech-1">!?</div>
+		</div>
+		<div class="frame frame-2">
+			<div class="speech speech-2">
+				<div class="speech-grid-item-1"></div>
+				<div class="speech-grid-item-2"></div>
+			</div>
+		</div>
+	</div>
+	<!-- <div class="grid-speech"></div> -->
+	<!-- <div class="grid-container-middle">
+		<div class="frame frame-3"></div>
+		<div class="frame frame-4"></div>
+	</div>
+	<div class="grid-container-bottom">
+		<div class="frame frame-5"></div>
+		<div class="frame frame-6"></div>
+	</div>	 -->
+</body>
+
+</html>
