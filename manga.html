@@ -5,6 +5,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 </head>
 <style>
+	:root {
+		--box-shdw: 1px 1px 5px grey;
+	}
+
 	.grid-container-top {
 		display: grid;
 		grid-template-rows: 230px;
@@ -35,21 +39,52 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+
 		left: calc(50% - 22.5px); top: calc(50% - 44px);
 		width: 45px;
 		height: 48px;
 		font-size: 20px;
 		border: 1px solid black;
+		box-shadow: var(--box-shdw, 1px 1px 5px grey);
 		background-color: #fff;
 	}
 
 	.speech-2 {
 		display: grid;
-		left: -35px; top: -35px;
-		width: 130px;
-		height: 170px;
-		border: 1px solid black;
+		grid-template-rows: 1fr;
+		grid-template-columns: 40% 10% 40%; 
+
+		left: -35px; top: -25px;
+		width: 140px;
+		height: 180px;
+	}
+
+	.speech-grid-item {
+		height: 75%;
 		background-color: #fff;
+	}
+
+	.speech-grid-item-1 {
+		grid-area: 1 / 1 / 2 / span 2;
+		align-self: end;
+
+		z-index: 1;
+		box-shadow: var(--box-shdw, 1px 1px 5px grey);
+		border: 1px solid #000;
+	}
+
+	.speech-grid-item-2 {
+		grid-area: 1 / 2 / 2 / 4;
+
+		z-index: 1;
+		margin: 1px;
+	}
+
+	.dummy {	/* to hide/show merging border lines */
+		grid-area: 1 / 2 / 2 / 4;
+
+		box-shadow: var(--box-shdw, 1px 1px 5px grey);
+		border: 1px solid #000;
 	}
 </style>
 <body>
@@ -59,8 +94,9 @@
 		</div>
 		<div class="frame frame-2">
 			<div class="speech speech-2">
-				<div class="speech-grid-item-1"></div>
-				<div class="speech-grid-item-2"></div>
+				<div class="speech-grid-item speech-grid-item-1"></div>
+				<div class="speech-grid-item speech-grid-item-2"></div>
+				<div class="speech-grid-item dummy"></div>
 			</div>
 		</div>
 	</div>
