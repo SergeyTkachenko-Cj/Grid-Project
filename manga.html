@@ -9,17 +9,20 @@
 		--box-shdw: 1px 1px 5px grey;
 	}
 
+	.grid-container-cover {
+		display: grid;
+		border: 1.5px solid grey;
+		width: 520px;
+		padding: 50px 0 0 30px;
+	}
+
+	/* top row (2 frames) */
+
 	.grid-container-top {
 		display: grid;
 		grid-template-rows: 230px;
 		grid-template-columns: 150px 300px;
 		grid-gap: 8px;
-		align-content: end;
-
-		width: 520px;
-		height: 285px;
-		padding-left: 30px;
-		border: 1.5px solid grey; 
 	}
 
 	.frame {
@@ -27,88 +30,131 @@
 		background: lightgrey; 
 	}
 
-	.frame-1, .frame-2 {
+	.frame-1, .frame-2,
+	.frame-3, .frame-4 {
 		position: relative;
 	}
 
 	.speech {
-		position: absolute;
-	}
-
-	.speech-1 {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-
-		left: calc(50% - 22.5px); top: calc(50% - 44px);
-		width: 45px;
-		height: 48px;
-		font-size: 20px;
 		border: 1px solid black;
 		box-shadow: var(--box-shdw, 1px 1px 5px grey);
 		background-color: #fff;
 	}
 
+	.speech-1 {
+		position: absolute;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		left: calc(50% - 22.5px); top: calc(50% - 44px);
+		width: 45px;
+		height: 48px;
+		font-size: 20px;
+	}
+
 	.speech-2 {
+		position: absolute;
 		display: grid;
 		grid-template-rows: 1fr;
 		grid-template-columns: 40% 10% 40%; 
-
 		left: -35px; top: -25px;
 		width: 140px;
 		height: 180px;
 	}
 
-	.speech-grid-item {
+	.speech-grid-item-1,
+	.speech-grid-item-3 {
+		grid-area: 1 / 1 / 2 / span 2;
+		align-self: end;
 		height: 75%;
+		z-index: 1;
+	}
+
+	.speech-grid-item-2,
+	.speech-grid-item-4 {
+		grid-area: 1 / 2 / 2 / 4;
+		height: 75%;
+		z-index: 1;
+		margin: 1px;
 		background-color: #fff;
 	}
 
-	.speech-grid-item-1 {
-		grid-area: 1 / 1 / 2 / span 2;
-		align-self: end;
-
-		z-index: 1;
-		box-shadow: var(--box-shdw, 1px 1px 5px grey);
-		border: 1px solid #000;
+	.dummy-1, .dummy-2 {	/* to hide/show merging border lines */
+		grid-area: 1 / 2 / 2 / 4;
+		height: 75%;
 	}
 
-	.speech-grid-item-2 {
-		grid-area: 1 / 2 / 2 / 4;
 
-		z-index: 1;
-		margin: 1px;
+	/* central row (2 frames) */
+
+	.grid-container-center {
+		display: grid;
+		grid-template-rows: 230px;
+		grid-template-columns: 180px 270px;
+		grid-gap: 8px;
+		margin-top: 16px;
 	}
 
-	.dummy {	/* to hide/show merging border lines */
-		grid-area: 1 / 2 / 2 / 4;
+	.speech-3 {
+		position: absolute;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		left: 6%; top: 55%;
+		width: 63px;
+		height: 88px;
+		font-size: 30px;
+	}
 
-		box-shadow: var(--box-shdw, 1px 1px 5px grey);
-		border: 1px solid #000;
+	.speech-4 {
+		position: absolute;
+		display: grid;
+		grid-template-rows: 1fr;
+		grid-template-columns: 55% 10% 25%; 
+		left: 60%; top: 0;
+		width: 150px;
+		height: 180px;
+	}
+
+	.speech-grid-item-3 {
+		height: 75%;
+	}
+
+	.speech-grid-item-4 {
+		height: 55%;
+	}
+
+	.dummy-2 {	/* to hide/show merging border lines */
+		height: 55%;
 	}
 </style>
 <body>
-	<div class="grid-container-top">
-		<div class="frame frame-1">
-			<div class="speech speech-1">!?</div>
+	<div class="grid-container-cover">
+		<div class="grid-container-top">
+			<div class="frame frame-1">
+				<div class="speech speech-1">!?</div>
+			</div>
+			<div class="frame frame-2">
+				<div class="speech-2">
+					<div class="speech speech-grid-item-1"></div>
+					<div class="speech-grid-item-2"></div>
+					<div class="speech dummy-1"></div>
+				</div>
+			</div>
 		</div>
-		<div class="frame frame-2">
-			<div class="speech speech-2">
-				<div class="speech-grid-item speech-grid-item-1"></div>
-				<div class="speech-grid-item speech-grid-item-2"></div>
-				<div class="speech-grid-item dummy"></div>
+		<div class="grid-container-center">
+			<div class="frame frame-3">
+				<div class="speech speech-3">!?</div>
+			</div>
+			<div class="frame frame-4">
+				<div class="speech-4">
+					<div class="speech speech-grid-item-3"></div>
+					<div class="speech-grid-item-4"></div>
+					<div class="speech dummy-2"></div>
+				</div>
 			</div>
 		</div>
 	</div>
-	<!-- <div class="grid-speech"></div> -->
-	<!-- <div class="grid-container-middle">
-		<div class="frame frame-3"></div>
-		<div class="frame frame-4"></div>
-	</div>
-	<div class="grid-container-bottom">
-		<div class="frame frame-5"></div>
-		<div class="frame frame-6"></div>
-	</div>	 -->
 </body>
 
 </html>
