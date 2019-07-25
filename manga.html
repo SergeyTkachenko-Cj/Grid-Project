@@ -13,7 +13,7 @@
 		display: grid;
 		border: 1.5px solid grey;
 		width: 520px;
-		padding: 50px 0 0 30px;
+		padding: 50px 0 50px 30px;
 	}
 
 	/* top row (2 frames) */
@@ -31,7 +31,8 @@
 	}
 
 	.frame-1, .frame-2,
-	.frame-3, .frame-4 {
+	.frame-3, .frame-4,
+	.frame-5, .frame-6 {
 		position: relative;
 	}
 
@@ -108,24 +109,72 @@
 
 	.speech-4 {
 		position: absolute;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		left: 6%; top: 13%;
+		width: 60px;
+		height: 135px;
+		font-size: 30px;
+	}
+
+	.speech-5 {
+		position: absolute;
 		display: grid;
 		grid-template-rows: 1fr;
 		grid-template-columns: 55% 10% 25%; 
-		left: 60%; top: 0;
+		left: 61%; top: 7%;
 		width: 150px;
 		height: 180px;
 	}
 
 	.speech-grid-item-3 {
+		align-self: center;
 		height: 75%;
 	}
 
-	.speech-grid-item-4 {
-		height: 55%;
+	.speech-grid-item-4,	/* to hide/show merging border lines */
+	.dummy-2 {
+		height: 63%;
 	}
 
-	.dummy-2 {	/* to hide/show merging border lines */
-		height: 55%;
+	/* in-between row */
+
+	.between-speech {
+		display: grid;
+		grid-template-rows: 15px;
+		grid-template-columns: 180px 270px;  
+		grid-gap: 8px;
+	}
+
+	.between-speech span {
+		grid-area: 1 / 2 / 2 / 3;
+		align-self: center;
+		padding-left: 3px;
+	}
+
+	/* bottom row (2 frames) */
+
+	.grid-container-bottom {
+		display: grid;
+		grid-template-rows: 230px;
+		grid-template-columns: 120px 380px;
+		grid-gap: 8px;
+	}
+
+	.frame-5 {
+		height: 80%;
+	}
+
+	.speech-6 {
+		position: absolute;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		right: 6%; top: 5%;
+		width: 55px;
+		height: 130px;
+		font-size: 30px;
 	}
 </style>
 <body>
@@ -147,11 +196,21 @@
 				<div class="speech speech-3">!?</div>
 			</div>
 			<div class="frame frame-4">
-				<div class="speech-4">
+				<div class="speech speech-4"></div>
+				<div class="speech-5">
 					<div class="speech speech-grid-item-3"></div>
 					<div class="speech-grid-item-4"></div>
 					<div class="speech dummy-2"></div>
 				</div>
+			</div>
+		</div>
+		<div class="between-speech"><span>blah blah blah blah blah blah blah</span></div>
+		<div class="grid-container-bottom">
+			<div class="frame frame-5">
+				<div class="speech speech-6"></div>
+			</div>
+			<div class="frame frame-6">
+				<div class="speech-7"></div>
 			</div>
 		</div>
 	</div>
