@@ -9,11 +9,16 @@
 		--box-shdw: 1px 1px 5px grey;
 	}
 
+	body {
+		background: #000; 
+	}
+
 	.grid-container-cover {
 		display: grid;
 		border: 1.5px solid grey;
 		width: 520px;
 		padding: 50px 0 50px 30px;
+		background: #fff;
 	}
 
 	/* top row (2 frames) */
@@ -51,6 +56,7 @@
 		width: 45px;
 		height: 48px;
 		font-size: 20px;
+		color: rgba(0,0,0,.8);
 	}
 
 	.speech-2 {
@@ -80,6 +86,17 @@
 		background-color: #fff;
 	}
 
+	.speech-grid-item-1 {
+		background: url(speech-1.jpg) 30% 70% no-repeat, linear-gradient(#fff,#fff);
+		background-size: 70% 60%;
+	}
+
+	.speech-grid-item-2 {
+		background: url(speech-2.jpg) no-repeat, linear-gradient(#fff,#fff);
+		background-size: 100% 100%;
+		background-position-y: -10px; 
+	}
+
 	.dummy-1, .dummy-2 {	/* to hide/show merging border lines */
 		grid-area: 1 / 2 / 2 / 4;
 		height: 75%;
@@ -105,6 +122,7 @@
 		width: 63px;
 		height: 88px;
 		font-size: 30px;
+		color: rgba(0,0,0,.8);
 	}
 
 	.speech-4 {
@@ -116,6 +134,8 @@
 		width: 60px;
 		height: 135px;
 		font-size: 30px;
+		background: url(speech-3.jpg) no-repeat, linear-gradient(#fff,#fff);
+		background-size: 100% 100%;
 	}
 
 	.speech-5 {
@@ -131,11 +151,20 @@
 	.speech-grid-item-3 {
 		align-self: center;
 		height: 75%;
+		background: url(speech-4.jpg) no-repeat, linear-gradient(#fff,#fff);
+		background-size: 80% 100%;
+		background-position-x: 50%; 
 	}
 
 	.speech-grid-item-4,	/* to hide/show merging border lines */
 	.dummy-2 {
 		height: 63%;
+	}
+
+	.speech-grid-item-4 {
+		background: url(speech-5.jpg) no-repeat, linear-gradient(#fff,#fff);
+		background-size: 80% 100%;
+		background-position: 30% 5px; 
 	}
 
 	/* in-between row */
@@ -150,7 +179,11 @@
 	.between-speech span {
 		grid-area: 1 / 2 / 2 / 3;
 		align-self: center;
+		width: 80%;
+		height: 10px;
 		padding-left: 3px;
+		background: url(speech-7.jpg) no-repeat, linear-gradient(#fff,#fff);
+		background-size: 100% 100%;
 	}
 
 	/* bottom row (2 frames) */
@@ -175,6 +208,8 @@
 		width: 55px;
 		height: 130px;
 		font-size: 30px;
+		background: url(speech-6.jpg) no-repeat, linear-gradient(#fff,#fff);
+		background-size: 100% 100%;
 	}
 </style>
 <body>
@@ -204,7 +239,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="between-speech"><span>blah blah blah blah blah blah blah</span></div>
+		<div class="between-speech"><span></span></div>
 		<div class="grid-container-bottom">
 			<div class="frame frame-5">
 				<div class="speech speech-6"></div>
