@@ -1,0 +1,293 @@
+<!DOCTYPE><html>
+<html>
+<head>
+	<title>CSS Grid</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+</head>
+<style>
+	:root {
+		--box-shdw: 1px 1px 5px grey;
+		--gap: 8px;
+	}
+
+	body {
+		background: #000; 
+	}
+
+	.grid-container-cover {
+		display: grid;
+		border: 1.5px solid grey;
+		width: 520px;
+		padding: 50px 0 50px 30px;
+		background: #fff;
+	}
+
+	/* top row (2 frames) */
+
+	.grid-container-top {
+		display: grid;
+		grid-template-rows: 230px;
+		grid-template-columns: 150px 300px;
+		grid-gap: var(--gap, 8px);
+	}
+
+	.frame {
+		border: 1.5px solid black;
+		background: lightgrey; 
+	}
+
+	.frame-1, .frame-2,
+	.frame-3, .frame-4,
+	.frame-5, .frame-6 {
+		position: relative;
+	}
+
+	.frame-1 {
+		background: url(frame-1.jpg);
+		background-size: cover;
+	}
+
+	.frame-2 {
+		background: url(frame-2.jpg) 0 -1px;
+		background-size: 100% 101%;
+	}
+
+	.frame-3 {
+		background: url(frame-3.jpg);
+		background-size: 101% 100%;
+	}
+
+	.frame-4 {
+		background: url(frame-4.jpg);
+		background-size: cover;
+	}
+
+	.frame-5 {
+		background: url(frame-5.jpg);
+		background-size: 100% 101%;
+	}
+
+	.frame-6 {
+		background: url(frame-6.jpg);
+		background-size: cover;
+	}
+
+	.speech {
+		border: 1px solid black;
+		box-shadow: var(--box-shdw, 1px 1px 5px grey);
+		background-color: #fff;
+	}
+
+	.speech-1 {
+		position: absolute;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		left: calc(44% - 22.5px); top: calc(45% - 44px);
+		width: 47px;
+		height: 51px;
+		font-size: 20px;
+		color: rgba(0,0,0,.8);
+	}
+
+	.speech-2 {
+		position: absolute;
+		display: grid;
+		grid-template-rows: 1fr;
+		grid-template-columns: 40% 10% 40%; 
+		left: -37px; top: -25px;
+		width: 140px;
+		height: 185px;
+	}
+
+	.speech-grid-item-1,
+	.speech-grid-item-3 {
+		grid-area: 1 / 1 / 2 / span 2;
+		align-self: end;
+		height: 75%;
+		z-index: 1;
+	}
+
+	.speech-grid-item-2,
+	.speech-grid-item-4 {
+		grid-area: 1 / 2 / 2 / 4;
+		height: 75%;
+		z-index: 1;
+		margin: 1px;
+		background-color: #fff;
+	}
+
+	.speech-grid-item-1 {
+		background: url(speech-1.jpg) 30% 70% no-repeat, linear-gradient(#fff,#fff);
+		background-size: 70% 60%;
+	}
+
+	.speech-grid-item-2 {
+		background: url(speech-2.jpg) no-repeat 0 -10px, linear-gradient(#fff,#fff);
+		background-size: 100% 100%;
+	}
+
+	.dummy-1, .dummy-2 {	/* to hide/show merging border lines */
+		grid-area: 1 / 2 / 2 / 4;
+		height: 75%;
+	}
+
+
+	/* central row (2 frames) */
+
+	.grid-container-center {
+		display: grid;
+		grid-template-rows: 230px;
+		grid-template-columns: 180px 270px;
+		grid-gap: var(--gap, 8px);
+		margin-top: 16px;
+	}
+
+	.speech-3 {
+		position: absolute;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		left: 6%; top: 55%;
+		width: 69px;
+		height: 88px;
+		font-size: 30px;
+		color: rgba(0,0,0,.8);
+	}
+
+	.speech-4 {
+		position: absolute;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		left: 5%; top: 12%;
+		width: 61px;
+		height: 153px;
+		font-size: 30px;
+		background: url(speech-3.jpg) no-repeat, linear-gradient(#fff,#fff);
+		background-size: 100% 100%;
+	}
+
+	.speech-5 {
+		position: absolute;
+		display: grid;
+		grid-template-rows: 1fr;
+		grid-template-columns: 55% 10% 25%; 
+		left: 62%; top: 4%;
+		width: 147px;
+		height: 200px;
+	}
+
+	.speech-grid-item-3 {
+		align-self: center;
+		height: 77%;
+		background: url(speech-4.jpg) no-repeat 50% 0, linear-gradient(#fff,#fff);
+		background-size: 80% 100%;
+	}
+
+	.speech-grid-item-4,	/* to hide/show merging border lines */
+	.dummy-2 {
+		height: 65%;
+	}
+
+	.speech-grid-item-4 {
+		background: url(speech-5.jpg) no-repeat 30% 5px, linear-gradient(#fff,#fff);
+		background-size: 80% 100%;
+	}
+
+	/* in-between row */
+
+	.between-speech {
+		display: grid;
+		grid-template-rows: 15px;
+		grid-template-columns: 180px 270px;  
+		grid-gap: var(--gap, 8px);
+	}
+
+	.between-speech span {
+		grid-area: 1 / 2 / 2 / 3;
+		align-self: center;
+		width: 80%;
+		height: 10px;
+		padding-left: 3px;
+		background: url(speech-7.jpg) no-repeat, linear-gradient(#fff,#fff);
+		background-size: 100% 100%;
+	}
+
+	/* bottom row (2 frames) */
+
+	.grid-container-bottom {
+		display: grid;
+		grid-template-rows: 230px;
+		grid-template-columns: 120px 380px;
+		grid-gap: var(--gap, 8px);
+	}
+
+	.frame-5 {
+		height: 80%;
+	}
+
+	.speech-6 {
+		position: absolute;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		right: 7.5%; top: 7%;
+		width: 58px;
+		height: 130px;
+		font-size: 30px;
+		background: url(speech-6.jpg) no-repeat, linear-gradient(#fff,#fff);
+		background-size: 100% 100%;
+	}
+
+	.speech-7 {
+		position: absolute;
+		display: flex;
+		justify-content: center;
+		right: 1%; bottom: -12%;
+		width: 100px;
+		height: 60px;
+		background: url(end-2.jpg) no-repeat, url(end-1.jpg) no-repeat, linear-gradient(#fff, #fff);
+		background-position: 63.9% 47%, 43% 50%;
+	}
+</style>
+<body>
+	<div class="grid-container-cover">
+		<div class="grid-container-top">
+			<div class="frame frame-1">
+				<div class="speech speech-1">!?</div>
+			</div>
+			<div class="frame frame-2">
+				<div class="speech-2">
+					<div class="speech speech-grid-item-1"></div>
+					<div class="speech-grid-item-2"></div>
+					<div class="speech dummy-1"></div>
+				</div>
+			</div>
+		</div>
+		<div class="grid-container-center">
+			<div class="frame frame-3">
+				<div class="speech speech-3">!?</div>
+			</div>
+			<div class="frame frame-4">
+				<div class="speech speech-4"></div>
+				<div class="speech-5">
+					<div class="speech speech-grid-item-3"></div>
+					<div class="speech-grid-item-4"></div>
+					<div class="speech dummy-2"></div>
+				</div>
+			</div>
+		</div>
+		<div class="between-speech"><span></span></div>
+		<div class="grid-container-bottom">
+			<div class="frame frame-5">
+				<div class="speech speech-6"></div>
+			</div>
+			<div class="frame frame-6">
+				<div class="speech speech-7"></div>
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>
